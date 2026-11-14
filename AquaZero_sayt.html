@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="kk"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AquaZero — суды үнемдейтін ақылды кір жуу жүйесі</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--red:#C0262D;--dred:#7A0F1A;--g:linear-gradient(135deg,#6E0C17 0%,#B71F2B 48%,#F0544F 100%);--ink:#1E1E22;--mut:#5E5E66;--line:#EBDADB;--soft:#FBF5F5}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color:var(--ink);line-height:1.55;background:#fff;-webkit-text-size-adjust:100%}
+a{color:inherit}
+.wrap{max-width:1100px;margin:0 auto;padding:0 22px}
+nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-weight:800;font-size:21px;letter-spacing:-.02em}.logo b{color:var(--red)}
+nav ul{display:flex;gap:22px;list-style:none;font-size:14px;font-weight:600;color:var(--mut)}
+nav a{text-decoration:none}nav a:hover{color:var(--red)}
+@media(max-width:760px){nav ul{display:none}}
+.hero{background:var(--g);color:#fff;position:relative;overflow:hidden}
+.hero:before{content:'';position:absolute;right:-160px;top:-180px;width:520px;height:520px;border-radius:50%;background:rgba(255,255,255,.10)}
+.hero:after{content:'';position:absolute;left:38%;bottom:-260px;width:460px;height:460px;border-radius:50%;background:rgba(255,255,255,.07)}
+.hero .wrap{position:relative;padding-top:84px;padding-bottom:84px;z-index:1}
+.badge{display:inline-block;font-size:13px;font-weight:700;padding:6px 14px;border-radius:99px;background:rgba(255,255,255,.18);margin-bottom:22px}
+h1{font-size:clamp(38px,7vw,72px);line-height:1.05;font-weight:800;letter-spacing:-.03em;max-width:760px}
+.hero p{font-size:clamp(17px,2.4vw,22px);max-width:640px;margin-top:22px;opacity:.95}
+.btn{display:inline-block;margin-top:30px;padding:14px 26px;border-radius:12px;background:#fff;color:var(--dred);font-weight:700;text-decoration:none}
+.btn.o{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.7);margin-left:10px}
+section{padding:72px 0}
+section.alt{background:var(--soft)}
+.tag{font-size:13px;font-weight:800;letter-spacing:.14em;color:var(--red);text-transform:uppercase}
+h2{font-size:clamp(28px,4.4vw,42px);line-height:1.12;font-weight:800;letter-spacing:-.02em;margin:8px 0 14px}
+.lead{font-size:18px;color:var(--mut);max-width:720px}
+.grid{display:grid;gap:18px;margin-top:34px}
+.g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:900px){.g4{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.g4,.g3,.g2{grid-template-columns:1fr}.g4.s{grid-template-columns:1fr 1fr}}
+.card{background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 8px 22px rgba(150,20,30,.06)}
+.card.r{background:var(--g);color:#fff;border:none}
+.card h3{font-size:19px;margin-bottom:8px}
+.card p,.card li{font-size:15.5px;color:var(--mut)}.card.r p,.card.r li{color:#FBE3E3}
+.big{font-size:clamp(32px,5vw,46px);font-weight:800;line-height:1;color:var(--red);white-space:nowrap}.card.r .big{color:#fff}
+.lab{font-size:14.5px;color:var(--mut);margin-top:8px}.card.r .lab{color:#FBE3E3}
+.num{width:38px;height:38px;border-radius:50%;background:var(--g);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.fig{margin-top:34px;border:1.5px solid var(--line);border-radius:20px;padding:14px;background:#fff;overflow:hidden}
+.fig{overflow-x:auto}.fig svg{width:100%;min-width:720px;height:auto;display:block}.card.r ul.l li:before{background:#fff}
+ul.l{list-style:none;margin-top:10px}ul.l li{padding-left:18px;position:relative;margin-bottom:6px}
+ul.l li:before{content:'';position:absolute;left:0;top:.6em;width:8px;height:8px;border-radius:50%;background:var(--g)}
+.price{font-size:34px;font-weight:800;margin:8px 0 2px}
+.cfg{display:grid;grid-template-columns:1.1fr 1fr;gap:26px;margin-top:34px;align-items:start}
+@media(max-width:860px){.cfg{grid-template-columns:1fr}}
+.row{margin-bottom:18px}.row label.t{display:block;font-weight:700;font-size:14px;margin-bottom:8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips input{position:absolute;opacity:0;pointer-events:none}
+.chips label{padding:9px 16px;border:1.5px solid var(--line);border-radius:99px;font-size:14.5px;font-weight:600;cursor:pointer;background:#fff}
+.chips input:checked+label{background:var(--g);color:#fff;border-color:transparent}
+.chips input:focus-visible+label{outline:3px solid #F0544F55}
+.sw{display:flex;gap:10px}.sw input{position:absolute;opacity:0}.sw label{width:34px;height:34px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 1.5px var(--line);cursor:pointer}
+.sw input:checked+label{box-shadow:0 0 0 3px var(--red)}
+.sum{background:var(--soft);border:1.5px solid var(--line);border-radius:18px;padding:22px}
+.sum h3{font-size:20px;margin-bottom:10px}.sum dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:15px}.sum dt{color:var(--mut)}.sum dd{font-weight:700}
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:34px;align-items:center}
+@media(max-width:760px){.calc{grid-template-columns:1fr}}
+input[type=range]{width:100%;accent-color:#C0262D}
+table{border-collapse:collapse;width:100%;font-size:15px;margin-top:26px;background:#fff;border-radius:14px;overflow:hidden}
+th{background:#B01E2A;color:#fff;text-align:left;padding:11px 14px}td{padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}td:first-child{font-weight:700;color:var(--dred)}
+.tw{overflow-x:auto}
+.chip{display:inline-block;padding:7px 14px;border-radius:99px;background:#FBE3E3;color:#8F1722;font-weight:700;font-size:13.5px;margin:4px 6px 0 0}
+.note{font-size:13.5px;color:#77777E;margin-top:14px}
+footer{background:#1E1E22;color:#cfcfd4;padding:40px 0;font-size:14px}footer b{color:#fff}
+</style></head><body>
+<nav><div class="wrap"><div class="logo">Aqua<b>Zero</b></div>
+<ul><li><a href="#how">Қалай жұмыс істейді</a></li><li><a href="#product">Өнім</a></li><li><a href="#config">Конфигуратор</a></li><li><a href="#calc">Үнем</a></li><li><a href="#service">Сервис</a></li><li><a href="#circular">6R</a></li></ul></div></nav>
+
+<header class="hero"><div class="wrap">
+<span class="badge">Студенттік концептуалды жоба · GVC</span>
+<h1>Су — ысырап емес, ресурс.</h1>
+<p>AquaZero — суды сүзіп, қайта қолданатын ақылды кір жуу жүйесі. Бір платформадан 64 конфигурация, ауыстырылатын сүзгі картриджі және толық айналымға дайын дизайн.</p>
+<a class="btn" href="#how">Қалай жұмыс істейді</a><a class="btn o" href="#config">Өз нұсқаңды жина</a>
+</div></header>
+
+<section><div class="wrap">
+<div class="tag">Мақсатты көрсеткіштер</div><h2>Жобаның негізгі мақсаттары</h2>
+<p class="lead">Төмендегі сандар — жоба мақсаттары мен модельдік есеп. Олар Алматыдағы екі кір жуу орнында өтетін пилоттық сынақта тексеріледі.</p>
+<div class="grid g4 s">
+<div class="card r"><div class="big">40–50%</div><div class="lab">суды үнемдеу мақсаты</div></div>
+<div class="card"><div class="big">20–30%</div><div class="lab">жуғыш затты азайту</div></div>
+<div class="card"><div class="big">≥ 90%</div><div class="lab">микроталшық сүзгіде қалады</div></div>
+<div class="card"><div class="big">≤ 22 л</div><div class="lab">бір жуу циклінің су көлемі</div></div>
+</div></div></section>
+
+<section class="alt" id="how"><div class="wrap">
+<div class="tag">AquaLoop технологиясы</div><h2>Су қалай қайта қолданылады</h2>
+<p class="lead">Қарапайым машинада су бір рет қолданылып, кәрізге төгіледі. AquaZero суды тексеріп, сүзіп, келесі жууда қайта пайдаланады.</p>
+<div class="grid g4">
+<div class="card"><div class="num">1</div><h3>Өлшеу</h3><p>Салмақ, лайлылық және ағын сенсорлары жүкті мен суды бағалайды.</p></div>
+<div class="card"><div class="num">2</div><h3>Сүзу</h3><p>Үш сатылы картридж: тор, микроталшық сүзгісі, ультрасүзгі мембранасы.</p></div>
+<div class="card"><div class="num">3</div><h3>Жинау</h3><p>Таза су буферлік бакта сақталады.</p></div>
+<div class="card"><div class="num">4</div><h3>Қайта қолдану</h3><p>Таза су келесі жууда қолданылады, лас су кәрізге төгіледі.</p></div>
+</div>
+<div class="fig"><svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" font-family="Inter, Liberation Sans, sans-serif"><rect width="1200" height="760" fill="#fff"/><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8B1220"/><stop offset="1" stop-color="#EF5350"/></linearGradient><marker id="a" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#C0262D"/></marker><marker id="b" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#555"/></marker></defs><text x="40" y="48" font-size="26" font-weight="700" fill="#1E1E22" text-anchor="start">AquaZero Home: өнімнің скетчі және су айналымы схемасы</text><text x="40" y="76" font-size="16" font-weight="400" fill="#666" text-anchor="start">Модульдік құрылым (M1–M7): сыртқы көрініс және AquaLoop контуры</text><ellipse cx="270" cy="668" rx="215" ry="16" fill="#000" opacity=".08"/><rect x="70" y="110" width="400" height="540" rx="30" fill="#F6F6F7" stroke="#1E1E22" stroke-width="3"/><path d="M70,140 a30,30 0 0 1 30,-30 h340 a30,30 0 0 1 30,30 v70 h-400 z" fill="url(#g)" stroke="#1E1E22" stroke-width="3"/><rect x="92" y="136" width="130" height="52" rx="10" fill="#fff" stroke="#1E1E22" stroke-width="2"/><text x="157" y="168" font-size="15" font-weight="400" fill="#444" text-anchor="middle">дозатор</text><circle cx="300" cy="162" r="24" fill="#fff" stroke="#1E1E22" stroke-width="2"/><line x1="300" y1="162" x2="312" y2="148" stroke="#1E1E22" stroke-width="3"/><rect x="345" y="138" width="105" height="48" rx="8" fill="#1E1E22"/><text x="397" y="160" font-size="17" font-weight="700" fill="#fff" text-anchor="middle">22 л</text><text x="397" y="178" font-size="11" font-weight="400" fill="#F4B0B0" text-anchor="middle">су үнемі ≈ 45%</text><circle cx="270" cy="425" r="150" fill="#E3E6EA" stroke="#1E1E22" stroke-width="5"/><circle cx="270" cy="425" r="122" fill="#F1F6F9" stroke="#8A97A3" stroke-width="3"/><path d="M190,380 a100,100 0 0 1 80,-60" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" opacity=".85"/><path d="M180,450 q45,-26 90,0 t90,0" fill="none" stroke="#7FB3D5" stroke-width="5" opacity=".8"/><path d="M185,478 q45,-26 90,0 t90,0" fill="none" stroke="#7FB3D5" stroke-width="5" opacity=".6"/><circle cx="378" cy="425" r="5" fill="#C0262D"/><circle cx="346" cy="501" r="5" fill="#C0262D"/><circle cx="270" cy="533" r="5" fill="#C0262D"/><circle cx="194" cy="501" r="5" fill="#C0262D"/><circle cx="162" cy="425" r="5" fill="#C0262D"/><circle cx="194" cy="349" r="5" fill="#C0262D"/><circle cx="270" cy="317" r="5" fill="#C0262D"/><circle cx="346" cy="349" r="5" fill="#C0262D"/><rect x="352" y="596" width="96" height="36" rx="8" fill="#fff" stroke="#1E1E22" stroke-width="2"/><text x="400" y="619" font-size="14" font-weight="400" fill="#444" text-anchor="middle">картридж</text><rect x="92" y="612" width="30" height="20" rx="4" fill="#1E1E22"/><rect x="418" y="650" width="30" height="14" rx="4" fill="#1E1E22"/><rect x="92" y="650" width="30" height="14" rx="4" fill="#1E1E22"/><circle cx="500" cy="150" r="17" fill="url(#g)"/><text x="500" y="155" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">M6</text><circle cx="500" cy="218" r="17" fill="url(#g)"/><text x="500" y="223" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">M7</text><line x1="483" y1="150" x2="450" y2="158" stroke="#C0262D" stroke-width="2"/><line x1="483" y1="218" x2="222" y2="170" stroke="#C0262D" stroke-width="2" stroke-dasharray="4 4"/><circle cx="500" cy="330" r="17" fill="url(#g)"/><text x="500" y="335" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">M1</text><line x1="483" y1="330" x2="470" y2="330" stroke="#C0262D" stroke-width="2"/><circle cx="500" cy="440" r="17" fill="url(#g)"/><text x="500" y="445" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">M5</text><line x1="483" y1="440" x2="368" y2="440" stroke="#C0262D" stroke-width="2" stroke-dasharray="4 4"/><circle cx="500" cy="614" r="17" fill="url(#g)"/><text x="500" y="619" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">M4</text><line x1="483" y1="614" x2="448" y2="614" stroke="#C0262D" stroke-width="2"/><rect x="570" y="105" width="590" height="470" rx="20" fill="#FBF5F5" stroke="#E9D5D6" stroke-width="2"/><text x="595" y="140" font-size="20" font-weight="700" fill="#7A0F1A" text-anchor="start">AquaLoop: жартылай жабық су контуры</text><rect x="600" y="175" width="170" height="110" rx="16" fill="#fff" stroke="#1E1E22" stroke-width="2.5"/><text x="685" y="215" font-size="18" font-weight="700" fill="#1E1E22" text-anchor="middle">Барабан</text><text x="685" y="238" font-size="14" font-weight="400" fill="#555" text-anchor="middle">жуу, шаю</text><circle cx="600" cy="175" r="17" fill="url(#g)"/><text x="600" y="180" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">M1</text><rect x="600" y="330" width="125" height="62" rx="12" fill="#fff" stroke="#1E1E22" stroke-width="2.5"/><text x="662" y="358" font-size="17" font-weight="700" fill="#1E1E22" text-anchor="middle">BLDC мотор</text><text x="662" y="378" font-size="14" font-weight="400" fill="#555" text-anchor="middle">инвертор</text><circle cx="600" cy="330" r="17" fill="url(#g)"/><text x="600" y="335" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">M2</text><line x1="662" y1="285" x2="662" y2="330" stroke="#555" stroke-width="3" marker-end="url(#b)"/><rect x="830" y="170" width="100" height="52" rx="10" fill="#fff" stroke="#1E1E22" stroke-width="2.5"/><text x="880" y="193" font-size="15" font-weight="700" fill="#1E1E22" text-anchor="middle">Сенсорлар</text><text x="880" y="211" font-size="13" font-weight="400" fill="#555" text-anchor="middle">лайлылық</text><circle cx="830" cy="168" r="17" fill="url(#g)"/><text x="830" y="173" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">M6</text><rect x="990" y="165" width="150" height="70" rx="12" fill="url(#g)"/><text x="1065" y="195" font-size="17" font-weight="700" fill="#fff" text-anchor="middle">Сүзгі картриджі</text><text x="1065" y="216" font-size="14" font-weight="400" fill="#FBE3E3" text-anchor="middle">3 саты</text><circle cx="990" cy="165" r="17" fill="url(#g)"/><text x="990" y="170" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">M4</text><rect x="990" y="330" width="150" height="90" rx="12" fill="#fff" stroke="#1E1E22" stroke-width="2.5"/><rect x="992" y="372" width="146" height="46" rx="10" fill="#CFE4F2"/><text x="1065" y="358" font-size="17" font-weight="700" fill="#1E1E22" text-anchor="middle">AquaLoop бак</text><text x="1065" y="400" font-size="14" font-weight="400" fill="#35566E" text-anchor="middle">таза су қоры</text><circle cx="990" cy="330" r="17" fill="url(#g)"/><text x="990" y="335" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">M3</text><circle cx="880" cy="375" r="34" fill="#fff" stroke="#1E1E22" stroke-width="2.5"/><text x="880" y="380" font-size="14" font-weight="700" fill="#1E1E22" text-anchor="middle">сорғы</text><path d="M770,215 H830" stroke="#C0262D" stroke-width="3.5" fill="none" marker-end="url(#a)"/><path d="M930,196 H990" stroke="#C0262D" stroke-width="3.5" fill="none" marker-end="url(#a)"/><path d="M1065,235 V330" stroke="#C0262D" stroke-width="3.5" fill="none" marker-end="url(#a)"/><path d="M990,375 H914" stroke="#C0262D" stroke-width="3.5" fill="none" marker-end="url(#a)"/><path d="M846,375 H745 V287" stroke="#C0262D" stroke-width="3.5" fill="none" marker-end="url(#a)"/><path d="M770,270 V255 H760 V285" stroke="none" fill="none"/><path d="M730,285 V310 H800" stroke="none" fill="none"/><text x="758" y="322" font-size="14" font-weight="700" fill="#C0262D" text-anchor="start">қайта қолдану</text><path d="M880,222 V262" stroke="#777" stroke-width="3" stroke-dasharray="6 5" fill="none" marker-end="url(#b)"/><text x="880" y="284" font-size="14" font-weight="400" fill="#555" text-anchor="middle">артық су → кәріз</text><text x="595" y="470" font-size="15" font-weight="400" fill="#444" text-anchor="start">Бақылау логикасы: сенсор суды тексереді → таза болса бакқа жібереді,</text><text x="595" y="492" font-size="15" font-weight="400" fill="#444" text-anchor="start">лас болса кәрізге төгеді; микроталшық картриджде қалады.</text><circle cx="1130" cy="520" r="17" fill="url(#g)"/><text x="1130" y="525" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">M5</text><text x="1112" y="526" font-size="14" font-weight="400" fill="#444" text-anchor="end">Ультрадыбыс — көмекші модуль (опция)</text><text x="40" y="725" font-size="15" font-weight="400" fill="#444" text-anchor="start">M1 корпус, барабан  ·  M2 BLDC жетек  ·  M3 AquaLoop бак  ·  M4 сүзгі картриджі</text><text x="40" y="747" font-size="15" font-weight="400" fill="#444" text-anchor="start">M5 ультрадыбыс (опция)  ·  M6 басқару, IoT  ·  M7 дозатор   |   Скетч концептуалды, масштабсыз</text></svg></div>
+<p class="note">Скетч концептуалды, масштабсыз. Ультрадыбыстық модуль — тек көмекші опция (дақтарды алдын ала өңдеу).</p>
+</div></section>
+
+<section id="product"><div class="wrap">
+<div class="tag">Өнім желісі</div><h2>Екі нұсқа, бір платформа</h2>
+<div class="grid g2">
+<div class="card r"><h3>AquaZero Home</h3><div class="price">$690</div><p>Болжамды бөлшек баға</p>
+<ul class="l"><li>6 кг барабан, үйге арналған</li><li>AquaLoop су контуры және 3 сатылы картридж</li><li>Қосымша: су, энергия, жуғыш зат аналитикасы</li><li>Автоматты дозатор</li></ul></div>
+<div class="card"><h3>AquaZero Pro</h3><div class="price" style="color:var(--red)">B2B</div><p>Кір жуу орындары, қонақүйлер, жатақханалар</p>
+<ul class="l"><li>10 кг барабан, ультракүлгін зарарсыздандыру</li><li>Жылу рекуперациясы</li><li>ESG-есеп: су және CO₂ үнемі</li><li>Wash-as-a-Service: бір цикл үшін төлем</li></ul></div>
+</div>
+<h2 style="margin-top:56px;font-size:30px">Жеті модуль</h2>
+<div class="grid g4">
+<div class="card"><h3>M1 Корпус, барабан</h3><p>6 немесе 10 кг</p></div>
+<div class="card"><h3>M2 Жетек</h3><p>BLDC мотор, инвертор</p></div>
+<div class="card"><h3>M3 AquaLoop бак</h3><p>Eco немесе Pro нұсқасы</p></div>
+<div class="card"><h3>M4 Сүзгі картриджі</h3><p>Аспапсыз бір қозғалыспен ауыстырылады</p></div>
+<div class="card"><h3>M5 Ультрадыбыс</h3><p>Опция: бар немесе жоқ</p></div>
+<div class="card"><h3>M6 Басқару, IoT</h3><p>Сенсорлар, алгоритм, қосымша</p></div>
+<div class="card"><h3>M7 Дозатор</h3><p>Бір немесе екі камера</p></div>
+<div class="card r"><div class="big">64</div><div class="lab">2 × 2 × 2 × 2 × 4 конфигурация</div></div>
+</div></div></section>
+
+<section class="alt" id="config"><div class="wrap">
+<div class="tag">Mass Customization</div><h2>Өз AquaZero-ңды жина</h2>
+<p class="lead">Конфигурация тапсырыс келгенде финалдық жинауда анықталады (Pull-өндіріс): модульдер қоймада дайын тұрады, жинау 1–2 күнде жасалады.</p>
+<div class="cfg"><div>
+<div class="row"><span class="t" style="display:block;font-weight:700;font-size:14px;margin-bottom:8px">Сыйымдылық</span><div class="chips" id="c_cap"><input type="radio" name="cap" id="cap6" value="6 кг (Home)" checked><label for="cap6">6 кг</label><input type="radio" name="cap" id="cap10" value="10 кг (Pro)"><label for="cap10">10 кг</label></div></div>
+<div class="row"><span class="t" style="display:block;font-weight:700;font-size:14px;margin-bottom:8px">Су модулі</span><div class="chips"><input type="radio" name="wat" id="w1" value="Eco (сүзу)" checked><label for="w1">Eco</label><input type="radio" name="wat" id="w2" value="Pro (сүзу + УК зарарсыздандыру)"><label for="w2">Pro (+ УК)</label></div></div>
+<div class="row"><span class="t" style="display:block;font-weight:700;font-size:14px;margin-bottom:8px">Ультрадыбыс (дақтарға)</span><div class="chips"><input type="radio" name="us" id="u0" value="жоқ" checked><label for="u0">Жоқ</label><input type="radio" name="us" id="u1" value="бар"><label for="u1">Бар</label></div></div>
+<div class="row"><span class="t" style="display:block;font-weight:700;font-size:14px;margin-bottom:8px">Басқару</span><div class="chips"><input type="radio" name="iot" id="i1" value="Home (қосымша)" checked><label for="i1">Home</label><input type="radio" name="iot" id="i2" value="Pro (төлем терминалымен)"><label for="i2">Pro</label></div></div>
+<div class="row"><span class="t" style="display:block;font-weight:700;font-size:14px;margin-bottom:8px">Алдыңғы панель түсі</span><div class="sw"><input type="radio" name="col" id="k1" value="Қызыл" data-c="#C0262D" checked><label for="k1" style="background:#C0262D" title="Қызыл"></label><input type="radio" name="col" id="k2" value="Графит" data-c="#3A3A42"><label for="k2" style="background:#3A3A42" title="Графит"></label><input type="radio" name="col" id="k3" value="Теңіз" data-c="#1F6F8B"><label for="k3" style="background:#1F6F8B" title="Теңіз"></label><input type="radio" name="col" id="k4" value="Орман" data-c="#2F7D4F"><label for="k4" style="background:#2F7D4F" title="Орман"></label></div></div>
+</div>
+<div class="sum">
+<svg viewBox="0 0 300 250" style="width:100%;max-width:260px;display:block;margin:0 auto 12px" aria-hidden="true"><ellipse cx="150" cy="238" rx="105" ry="8" fill="#000" opacity=".08"/><rect x="45" y="12" width="210" height="222" rx="18" fill="#F6F6F7" stroke="#1E1E22" stroke-width="3"/><path d="M45,30 a18,18 0 0 1 18,-18 h174 a18,18 0 0 1 18,18 v36 h-210 z" id="panel" fill="#C0262D" stroke="#1E1E22" stroke-width="3"/><rect x="58" y="26" width="60" height="26" rx="6" fill="#fff"/><rect x="190" y="26" width="52" height="26" rx="5" fill="#1E1E22"/><circle cx="150" cy="148" r="68" fill="#E3E6EA" stroke="#1E1E22" stroke-width="4"/><circle cx="150" cy="148" r="54" fill="#F1F6F9" stroke="#8A97A3" stroke-width="2"/><path d="M104,158 q23,-14 46,0 t46,0" fill="none" stroke="#7FB3D5" stroke-width="4"/></svg>
+<h3>Таңдалған конфигурация</h3>
+<dl><dt>Сыйымдылық</dt><dd id="s_cap"></dd><dt>Су модулі</dt><dd id="s_wat"></dd><dt>Ультрадыбыс</dt><dd id="s_us"></dd><dt>Басқару</dt><dd id="s_iot"></dd><dt>Түс</dt><dd id="s_col"></dd><dt>Нұсқа</dt><dd id="s_ver"></dd></dl>
+<p class="note">Барлығы 64 мүмкін комбинация. Бұл тек концептуалды көрсету, нақты тапсырыс қабылданбайды.</p></div></div>
+</div></section>
+
+<section id="calc"><div class="wrap">
+<div class="tag">Үнем калькуляторы</div><h2>Жылына қанша су үнемдеуге болады?</h2>
+<div class="calc"><div>
+<label for="loads" style="font-weight:700">Аптасына жуу саны: <span id="lv" style="color:var(--red)">5</span></label>
+<input type="range" id="loads" min="1" max="30" value="5" style="margin-top:12px">
+<p class="note">Болжам: базалық машина ~40 л/цикл, AquaZero мақсаты 22 л/цикл (пилотта нақтыланады).</p></div>
+<div class="card r"><div class="big" id="saved">0</div><div class="lab">литр су жылына (модельдік есеп)</div><p style="margin-top:14px;font-size:15px" id="saved2"></p></div></div>
+</div></section>
+
+<section class="alt" id="service"><div class="wrap">
+<div class="tag">Product + Service</div><h2>Машина — бастамасы ғана</h2>
+<p class="lead">Құнның едәуір бөлігі сатылымнан кейінгі сервистен түседі. Сүзгі картриджі тек AquaZero-ға сәйкес келеді.</p>
+<div class="tw"><table><tr><th>Сервис</th><th>Кімге</th><th>Табыс моделі</th></tr>
+<tr><td>Сүзгі картриджіне жазылым</td><td>Home, Pro</td><td>Айына $5; ескі картридж қайтарылады</td></tr>
+<tr><td>Қашықтан диагностика</td><td>Home, Pro</td><td>Айына $1</td></tr>
+<tr><td>Қосымша және OTA жаңарту</td><td>Барлығы</td><td>Тегін</td></tr>
+<tr><td>ESG-есеп (су және CO₂)</td><td>Қонақүйлер, жатақханалар</td><td>Pro бағдарламасына кіреді</td></tr>
+<tr><td>Wash-as-a-Service</td><td>Кір жуу орындары</td><td>Бір цикл үшін төлем</td></tr>
+<tr><td>Trade-in және Renewed</td><td>Барлығы</td><td>Жеңілдік; жаңартылған машина</td></tr></table></div>
+<div class="grid g3"><div class="card r"><div class="big">$1 050</div><div class="lab">бір клиенттен жалпы құн: $690 құрылғы + $360 сервис (5 жыл), модельдік есеп</div></div>
+<div class="card"><div class="big">72%</div><div class="lab">құнның өндірістен тыс кезеңдердегі үлесі (базалық машинада 36%)</div></div>
+<div class="card"><div class="big">34%</div><div class="lab">құнның сервистен түсетін бөлігі</div></div></div>
+</div></section>
+
+<section id="circular"><div class="wrap">
+<div class="tag">Айналмалы экономика</div><h2>6R: дизайн басынан бастап тұрақты</h2>
+<p class="lead">Reduce, Reuse, Recycle, Recover, Redesign, Remanufacture принциптері өнім дизайнына енгізілген. Ескі машина кері логистика арқылы компанияға қайтады.</p>
+<div class="fig"><svg xmlns="http://www.w3.org/2000/svg" width="1200" height="790" viewBox="0 0 1200 790" font-family="Inter, Liberation Sans, sans-serif"><rect width="1200" height="790" fill="#fff"/><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8B1220"/><stop offset="1" stop-color="#EF5350"/></linearGradient><marker id="a" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#C0262D"/></marker><marker id="b" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#555"/></marker></defs><text x="40" y="48" font-size="26" font-weight="700" fill="#1E1E22" text-anchor="start">AquaZero 6R эко-моделі және кері логистика</text><ellipse cx="600" cy="350" rx="330" ry="215" fill="none" stroke="#E7B9BC" stroke-width="3" stroke-dasharray="3 9"/><path d="M734,154 L794,176" stroke="#C0262D" stroke-width="4" fill="none" marker-end="url(#a)"/><path d="M928,328 L928,372" stroke="#C0262D" stroke-width="4" fill="none" marker-end="url(#a)"/><path d="M794,524 L734,546" stroke="#C0262D" stroke-width="4" fill="none" marker-end="url(#a)"/><path d="M466,546 L406,524" stroke="#C0262D" stroke-width="4" fill="none" marker-end="url(#a)"/><path d="M272,372 L272,328" stroke="#C0262D" stroke-width="4" fill="none" marker-end="url(#a)"/><path d="M406,176 L466,154" stroke="#C0262D" stroke-width="4" fill="none" marker-end="url(#a)"/><rect x="430" y="85" width="340" height="100" rx="16" fill="#fff" stroke="#E0B8BB" stroke-width="2"/><text x="448.0" y="119.0" font-size="22" font-weight="700" fill="#7A0F1A" text-anchor="start">Reduce</text><text x="752.0" y="119.0" font-size="15" font-weight="400" fill="#666" text-anchor="end">азайту</text><text x="448.0" y="147.0" font-size="15" font-weight="400" fill="#1E1E22" text-anchor="start">Су ≤ 22 л/цикл, жуғыш зат −20–30%</text><text x="448.0" y="168.0" font-size="15" font-weight="400" fill="#1E1E22" text-anchor="start"></text><rect x="716" y="192" width="340" height="100" rx="16" fill="#fff" stroke="#E0B8BB" stroke-width="2"/><text x="733.7883832488648" y="226.5" font-size="22" font-weight="700" fill="#7A0F1A" text-anchor="start">Reuse</text><text x="1037.7883832488646" y="226.5" font-size="15" font-weight="400" fill="#666" text-anchor="end">қайта қолдану</text><text x="733.7883832488648" y="254.5" font-size="15" font-weight="400" fill="#1E1E22" text-anchor="start">Шаю суы қайта қолданылады; картридж</text><text x="733.7883832488648" y="275.5" font-size="15" font-weight="400" fill="#1E1E22" text-anchor="start">корпусы 10 рет</text><rect x="716" y="408" width="340" height="100" rx="16" fill="#fff" stroke="#E0B8BB" stroke-width="2"/><text x="733.7883832488648" y="441.5" font-size="22" font-weight="700" fill="#7A0F1A" text-anchor="start">Recycle</text><text x="1037.7883832488646" y="441.5" font-size="15" font-weight="400" fill="#666" text-anchor="end">қайта өңдеу</text><text x="733.7883832488648" y="469.5" font-size="15" font-weight="400" fill="#1E1E22" text-anchor="start">Мономатериал, желімсіз бекіту;</text><text x="733.7883832488648" y="490.5" font-size="15" font-weight="400" fill="#1E1E22" text-anchor="start">кемінде 85%-ы қайта өңделеді</text><rect x="430" y="515" width="340" height="100" rx="16" fill="#fff" stroke="#E0B8BB" stroke-width="2"/><text x="448.0" y="549.0" font-size="22" font-weight="700" fill="#7A0F1A" text-anchor="start">Recover</text><text x="752.0" y="549.0" font-size="15" font-weight="400" fill="#666" text-anchor="end">қайта алу</text><text x="448.0" y="577.0" font-size="15" font-weight="400" fill="#1E1E22" text-anchor="start">Ағынды судан жылу рекуперациясы</text><text x="448.0" y="598.0" font-size="15" font-weight="400" fill="#1E1E22" text-anchor="start">(Pro)</text><rect x="144" y="408" width="340" height="100" rx="16" fill="#fff" stroke="#E0B8BB" stroke-width="2"/><text x="162.21161675113524" y="441.5" font-size="22" font-weight="700" fill="#7A0F1A" text-anchor="start">Redesign</text><text x="466.21161675113524" y="441.5" font-size="15" font-weight="400" fill="#666" text-anchor="end">экодизайн</text><text x="162.21161675113524" y="469.5" font-size="15" font-weight="400" fill="#1E1E22" text-anchor="start">Модульдік, жөндеуге ыңғайлы: модуль</text><text x="162.21161675113524" y="490.5" font-size="15" font-weight="400" fill="#1E1E22" text-anchor="start">15 минутта ауысады</text><rect x="144" y="192" width="340" height="100" rx="16" fill="url(#g)" stroke="#E0B8BB" stroke-width="2"/><text x="162.21161675113524" y="226.49999999999997" font-size="22" font-weight="700" fill="#fff" text-anchor="start">Remanufacture</text><text x="466.21161675113524" y="226.49999999999997" font-size="15" font-weight="400" fill="#FBE3E3" text-anchor="end">қалпына келтіру</text><text x="162.21161675113524" y="254.49999999999997" font-size="15" font-weight="400" fill="#fff" text-anchor="start">Pro 5 жылдан кейін «AquaZero</text><text x="162.21161675113524" y="275.5" font-size="15" font-weight="400" fill="#fff" text-anchor="start">Renewed» ретінде қайта сатылады</text><circle cx="600" cy="350" r="80" fill="url(#g)"/><text x="600" y="346" font-size="24" font-weight="700" fill="#fff" text-anchor="middle">AquaZero</text><text x="600" y="370" font-size="14" font-weight="400" fill="#FBE3E3" text-anchor="middle">айналмалы цикл</text><rect x="40" y="652" width="1120" height="100" rx="16" fill="#FBF5F5" stroke="#E9D5D6" stroke-width="2"/><text x="60" y="684" font-size="19" font-weight="700" fill="#7A0F1A" text-anchor="start">Кері логистика</text><rect x="60" y="700" width="140" height="38" rx="10" fill="#fff" stroke="#D9A9AD" stroke-width="1.5"/><text x="130.0" y="724" font-size="15" font-weight="400" fill="#1E1E22" text-anchor="middle">Тұтынушы</text><path d="M203,719 h14" stroke="#C0262D" stroke-width="3" marker-end="url(#a)"/><rect x="222" y="700" width="230" height="38" rx="10" fill="#fff" stroke="#D9A9AD" stroke-width="1.5"/><text x="337.0" y="724" font-size="15" font-weight="400" fill="#1E1E22" text-anchor="middle">Сервис сапары / пошта</text><path d="M455,719 h14" stroke="#C0262D" stroke-width="3" marker-end="url(#a)"/><rect x="474" y="700" width="250" height="38" rx="10" fill="#fff" stroke="#D9A9AD" stroke-width="1.5"/><text x="599.0" y="724" font-size="15" font-weight="400" fill="#1E1E22" text-anchor="middle">Алматы хабы: диагностика</text><path d="M727,719 h14" stroke="#C0262D" stroke-width="3" marker-end="url(#a)"/><rect x="746" y="700" width="400" height="38" rx="10" fill="#fff" stroke="#D9A9AD" stroke-width="1.5"/><text x="946.0" y="724" font-size="15" font-weight="400" fill="#1E1E22" text-anchor="middle">Төрт жол: reuse · recycle · recover · remanufacture</text></svg></div>
+<h2 style="margin-top:48px;font-size:30px">Стандарттар мен талаптар</h2>
+<div><span class="chip">IEC 60335-1 / 2-7</span><span class="chip">IEC 60456</span><span class="chip">ЕО 2019/2023 экодизайн</span><span class="chip">ТР ТС 004/2011 · 020/2011</span><span class="chip">Matter</span><span class="chip">ISO 9001 · 14001</span><span class="chip">ISO 14040/14044</span></div>
+<p class="note">Франция AGEC заңы 2025 жылдан бастап микроталшық сүзгісін талап етеді; CBAM-ды кір жуғыш машиналарға кеңейту — Еуропа Комиссиясының ұсынысы (әлі қабылданған заң емес).</p>
+</div></section>
+
+<footer><div class="wrap"><b>AquaZero</b> — «Жаһандық жеткізу тізбегін басқару» пәні бойынша студенттік концептуалды жоба, 2026.<br>Бағалар, шығындар және көрсеткіштер — модельдік болжам. Бұл сайт нақты өнімді сатуға ұсынбайды.</div></footer>
+
+<script>
+(function(){
+function v(n){var e=document.querySelector('input[name='+n+']:checked');return e}
+function upd(){
+ document.getElementById('s_cap').textContent=v('cap').value;
+ document.getElementById('s_wat').textContent=v('wat').value;
+ document.getElementById('s_us').textContent=v('us').value;
+ document.getElementById('s_iot').textContent=v('iot').value;
+ document.getElementById('s_col').textContent=v('col').value;
+ document.getElementById('s_ver').textContent=(v('cap').id==='cap6'&&v('iot').id==='i1')?'Home-ға жақын':(v('cap').id==='cap10'&&v('iot').id==='i2')?'Pro-ға жақын':'аралас';
+ document.getElementById('panel').setAttribute('fill',v('col').getAttribute('data-c'));
+}
+document.querySelectorAll('.cfg input').forEach(function(i){i.addEventListener('change',upd)});upd();
+var r=document.getElementById('loads');
+function calc(){var n=+r.value;document.getElementById('lv').textContent=n;
+ var s=n*52*(40-22);document.getElementById('saved').textContent=s.toLocaleString('ru-RU');
+ document.getElementById('saved2').textContent='≈ '+(s/1000).toFixed(1)+' м³ жылына, бір айда ≈ '+Math.round(s/12).toLocaleString('ru-RU')+' л';}
+r.addEventListener('input',calc);calc();
+})();
+</script>
+</body></html>
